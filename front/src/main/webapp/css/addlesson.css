@@ -1,0 +1,45 @@
+/*테이블 첫번째 열*/
+div.addlesson>form>div.table div.td1 {
+    width: 30%;
+    padding: 5px;
+    display: inline-block;
+}
+
+/*테이블 두번째 열*/
+div.addlesson>form>div.table div.td2 {
+    width: 50%;
+    padding: 5px;
+    display: inline-block;
+}
+
+/*테이블 세번째 열*/
+div.addlesson>form>div.table div.td3 {
+    width: 20%;
+    padding: 5px;
+    display: inline-block;
+}
+
+.select {
+    padding: 15px 10px;
+}
+
+/*레슨분류*/
+.select input[type=checkbox]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.select input[type=checkbox]+label{
+    background-color: #fff;
+    color: #333;
+}
+.select input[type=checkbox]:checked+label{
+    background-color: #333;
+    color: #fff;
+}
