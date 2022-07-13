@@ -76,6 +76,10 @@ public class AddLessonServlet extends HttpServlet {
 //			}
 		} catch (AddException e) {
 			e.printStackTrace();
+			Map<String, Object> map = new HashMap<>();
+			map.put("status", 0);
+			map.put("msg", "등록실패");
+			result = mapper.writeValueAsString(map);
 		}
 		out.print(result);
 	}
