@@ -23,7 +23,7 @@ import com.golflearn.repository.AddLessonRepository;
 @WebServlet("/addlesson")
 public class AddLessonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	// 겟으로 할지 포스트로 할지 고민
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -54,6 +54,7 @@ public class AddLessonServlet extends HttpServlet {
 			lsnClsfcs.add(lsnClsfc);
 		}
 		
+		//입력받은 데이터 저장 
 		try {
 			// 로그인된 사용자인지 검사
 //			String loginedId = (String)session.getAttribute("loginInfo");
@@ -69,7 +70,7 @@ public class AddLessonServlet extends HttpServlet {
 					repository.insert(lesson);	//레슨정보 등록
 					Map<String, Object> map = new HashMap<>();
 					map.put("status", 1);
-					map.put("user_type", 1);
+//					map.put("user_type", 1);
 					map.put("msg", "등록성공");
 					result = mapper.writeValueAsString(map);
 //				}
@@ -77,7 +78,7 @@ public class AddLessonServlet extends HttpServlet {
 		} catch (AddException e) {
 			e.printStackTrace();
 			Map<String, Object> map = new HashMap<>();
-			map.put("status", 0);
+			map.put("status", -1);
 			map.put("msg", "등록실패");
 			result = mapper.writeValueAsString(map);
 		}

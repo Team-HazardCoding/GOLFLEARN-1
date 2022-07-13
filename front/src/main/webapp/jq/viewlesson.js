@@ -11,7 +11,7 @@ $(function(){
 		success: function (jsonObj) {
 			console.log(jsonObj);
 			//-----------레슨정보호출 START-------------
-			//레슨간략정보(레슨제목, 레슨별점,,, 등) 가져오기
+			//레슨간략정보(레슨제목, 레슨별점,,, 등) 서블릿에서 가져오기
 			let loc_no = jsonObj.lesson.locNo;	//지역코드(ex:11011에 해당하는 주소지역 다 문자로 표현)
 			let lsn_title = jsonObj.lesson.lsnTitle;
 			let lsn_star_score = jsonObj.lesson.lsnStarScore;
@@ -19,14 +19,14 @@ $(function(){
 			let user_name = jsonObj.lesson.user.userName;	
 			let pro_star_score = jsonObj.lesson.proStarScore;
 			let lsn_no = jsonObj.lesson.lsnNo;
-			//레슨상세정보(레슨소개, 프로소개) 가져오기
+			//레슨상세정보(레슨소개, 프로소개) 서블릿에서 가져오기
 			let lsn_intro = jsonObj.lesson.lsnIntro;
 			let pro_intro = jsonObj.lesson.pro.proCareer;
 
-			//레슨간략정보 붙이기
+			//레슨간략정보 WB에 붙이기
 			// $('div.viewlesson>img').attr('src', 'C:\\Golflearn_lib\\user_images\\' + lsn_no + '.png')
 			// 	.attr('alt', lsn_title);	//레슨썸네일 경로 파일 불러오기(경로 수정 필요)
-			$('div.viewlesson>img').attr('src', '../images/' + lsn_no + '.jfif')
+			$('div.viewlesson>img').attr('src', '../images/' + lsn_no + '.jpg')
 				.attr('alt', lsn_title);	
 			$('div.viewlesson ul>li>span.loc_no').html(loc_no);	//지역은 api로 넘어갈때 수정
 			$('div.viewlesson ul>li>span.lsn_title').html(lsn_title);
@@ -34,7 +34,7 @@ $(function(){
 			$('div.viewlesson ul>li>span.lsn_review_cnt').html(lsn_review_cnt);
 			$('div.viewlesson ul>li>span.user_name').html(user_name);
 			$('div.viewlesson ul>li>span.pro_star_score').html(pro_star_score);
-			//레슨상세정보 붙이기
+			//레슨상세정보 WB에 붙이기
 			$('div.lsn_intro').html(lsn_intro);
 			$('div.pro_intro').html(pro_intro);
 

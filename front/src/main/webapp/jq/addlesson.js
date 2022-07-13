@@ -1,4 +1,12 @@
 $(function(){
+   
+    //------------썸네일 첨부 START------------
+
+    //------------레슨분류 등록 START------------
+
+    //------------레슨지역 등록 START------------
+
+    //------------레슨정보 등록버튼 START------------
 	$('div.tr3>div.tr1>button').click(function(){
 		$.ajax({
 			url: '/back/addorder',
@@ -6,13 +14,10 @@ $(function(){
 			success: function(jsonObj){
 				if(jsonObj.status == 1){	//로그인이 되있을경우
 					alert(jsonObj.msg);
-					// location.href="";
-					$('nav>a[href="productlist.html"]').trigger('click');	//상품목록
-				}else if(jsonObj.status == 0){	//로그인 안된 경우
+					location.href="";
+				}else if(jsonObj.status == -1){	//등록실패
 					alert(jsonObj.msg);
-					$('nav>a[href="login.html"]').trigger('click');	//로그인
-				}else if(jsonObj.status == -1){	//주문실패
-					alert(jsonObj.msg);
+                    location.href="";
 				}
 			},
 			error: function(jqXHR){
