@@ -17,7 +17,8 @@ public class Lesson {
 	private float lsnStarScore;	//레슨별점 : pjw
 	private float proStarScore;	//프로별점 : pjw
 	private int lsnStatus;
-	private int locNo;	//지역테이블없애기로해서 생성 : 여기에 지역정보넣으라고하심 : pjw
+//	private int locNo;	//지역테이블없애기로해서 생성 : 여기에 지역정보넣으라고하심 : pjw
+	private String locNo;
 	private User user;
 	private java.sql.Date lsnUploadDt;
 	private List<LessonClsfc> lsnClsfcs;
@@ -132,17 +133,27 @@ public class Lesson {
 		this.lsnStatus = lsnStatus;
 	}
 
-	public int getLocNo() {
+//	public int getLocNo() {
+//		return locNo;
+//	}
+//
+//	public void setLocNo(int locNo) {
+//		this.locNo = locNo;
+//	}
+	
+	public String getLocNo() {
 		return locNo;
 	}
-
-	public void setLocNo(int locNo) {
+	
+	public void setLocNo(String locNo) {
 		this.locNo = locNo;
 	}
+	
 
 	public User getUser() {
 		return user;
 	}
+
 
 	public void setUser(User user) {
 		this.user = user;
@@ -189,13 +200,13 @@ public class Lesson {
 		this.lsnReview = lsnReview;
 	}
 
-	@Override
-	public String toString() {
-		return "Lesson [lsnNo=" + lsnNo + ", lsnTitle=" + lsnTitle + ", lsnIntro=" + lsnIntro + ", lsnLv=" + lsnLv
-				+ ", lsnDays=" + lsnDays + ", lsnPrice=" + lsnPrice + ", lsnPerTime=" + lsnPerTime + ", lsnCntSum="
-				+ lsnCntSum + ", lsnStarSum=" + lsnStarSum + ", lsnStarPplCnt=" + lsnStarPplCnt + ", lsnStarScore="
-				+ lsnStarScore + ", proStarScore=" + proStarScore + ", lsnStatus=" + lsnStatus + ", locNo=" + locNo
-				+ ", user=" + user + ", lsnUploadDt=" + lsnUploadDt + ", lsnClsfcs=" + lsnClsfcs + ", lines=" + lines
-				+ ", pro=" + pro + ", lsnReview=" + lsnReview + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Lesson [lsnNo=" + lsnNo + ", lsnTitle=" + lsnTitle + ", lsnIntro=" + lsnIntro + ", lsnLv=" + lsnLv
+//				+ ", lsnDays=" + lsnDays + ", lsnPrice=" + lsnPrice + ", lsnPerTime=" + lsnPerTime + ", lsnCntSum="
+//				+ lsnCntSum + ", lsnStarSum=" + lsnStarSum + ", lsnStarPplCnt=" + lsnStarPplCnt + ", lsnStarScore="
+//				+ lsnStarScore + ", proStarScore=" + proStarScore + ", lsnStatus=" + lsnStatus + ", locNo=" + locNo
+//				+ ", user=" + user + ", lsnUploadDt=" + lsnUploadDt + ", lsnClsfcs=" + lsnClsfcs + ", lines=" + lines
+//				+ ", pro=" + pro + ", lsnReview=" + lsnReview + "]";
+//	}
 }

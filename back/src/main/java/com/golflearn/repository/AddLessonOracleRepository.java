@@ -33,7 +33,8 @@ public class AddLessonOracleRepository implements AddLessonRepository {
 				+ "lsn_lv, lsn_cnt_sum, lsn_per_time, lsn_intro, lsn_days, lsn_upload_dt, lsn_status) "
 				+ "VALUES (lsn_no_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
 			pstmt = con.prepareStatement(insertLessonSQL);
-			pstmt.setInt(1, lesson.getLocNo());
+//			pstmt.setInt(1, lesson.getLocNo());
+			pstmt.setString(1, lesson.getLocNo());
 			pstmt.setString(2, lesson.getLsnTitle());
 			pstmt.setInt(3, lesson.getLsnPrice());
 			pstmt.setInt(4, lesson.getLsnLv());
@@ -43,7 +44,7 @@ public class AddLessonOracleRepository implements AddLessonRepository {
 			pstmt.setInt(8, lesson.getLsnDays());
 			pstmt.setDate(9, lesson.getLsnUploadDt());
 			
-			pstmt.executeUpdate();
+			pstmt.executeUpdate();					
 			System.out.println("레슨 등록완료");
 	}
 

@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.golflearn.dto.Lesson;
@@ -21,26 +23,29 @@ import com.golflearn.repository.AddLessonOracleRepository;
 import com.golflearn.repository.AddLessonRepository;
 
 @WebServlet("/addlesson")
+@MultipartConfig
 public class AddLessonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		ObjectMapper mapper = new ObjectMapper();
 		String result = "";
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		
 		//입력받은 레슨정보를 레슨객체에 저장
 		Lesson lesson = new Lesson();
-		lesson.setLocNo(Integer.parseInt(request.getParameter("loc_no")));
+//		lesson.setLocNo(Integer.parseInt(request.getParameter("loc_no")));
+		lesson.setLocNo(request.getParameter("loc_no"));
 		lesson.setLsnTitle(request.getParameter("lsn_title"));
 		lesson.setLsnPrice(Integer.parseInt(request.getParameter("lsn_price")));
 		lesson.setLsnLv(Integer.parseInt(request.getParameter("lsn_lv")));
 		lesson.setLsnCntSum(Integer.parseInt(request.getParameter("lsn_cnt_sum")));
 		lesson.setLsnPerTime(Integer.parseInt(request.getParameter("lsn_per_time")));
 		lesson.setLsnIntro(request.getParameter("lsn_intro"));
-		lesson.setLsnDays(Integer.parseInt(request.getParameter("lsn_Days")));
+		lesson.setLsnDays(Integer.parseInt(request.getParameter("lsn_days")));
 		lesson.setLsnUploadDt(new java.sql.Date(System.currentTimeMillis()));
 		
 		String[] clubNos = request.getParameterValues("club_no");
@@ -54,11 +59,13 @@ public class AddLessonServlet extends HttpServlet {
 			lsnClsfcs.add(lsnClsfc);
 		}
 		
+		String userId = (String)session.getAttribute("loginInfo");
+		
 		//입력받은 데이터 저장 
 		try {
 			// 로그인된 사용자인지 검사
 //			String loginedId = (String)session.getAttribute("loginInfo");
-//			if(loginedId == null) {
+//			if(userId == null) {
 //				Map<String, Object> map = new HashMap<>();
 //				map.put("status", 0);
 //				map.put("msg", "로그인하세요");
@@ -74,6 +81,8 @@ public class AddLessonServlet extends HttpServlet {
 					map.put("msg", "등록성공");
 					result = mapper.writeValueAsString(map);
 //				}
+					Upload upload = new Upload();
+					upload.uploadFiles(request, userId);
 //			}
 		} catch (AddException e) {
 			e.printStackTrace();

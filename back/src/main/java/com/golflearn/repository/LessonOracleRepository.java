@@ -64,7 +64,8 @@ public class LessonOracleRepository implements LessonRepository {
 					lesson.setLsnStarPplCnt(rs.getInt("lsn_star_ppl_cnt"));
 					lesson.setLsnLv(rs.getInt("lsn_lv"));
 					lesson.setLsnPrice(rs.getInt("lsn_price"));
-					lesson.setLocNo(rs.getInt("loc_no"));
+//					lesson.setLocNo(rs.getInt("loc_no"));
+					lesson.setLocNo(rs.getString("loc_no"));
 					lesson.setLsnPerTime(rs.getInt("lsn_per_time"));
 					lesson.setLsnDays(rs.getInt("lsn_days"));
 					lesson.setLsnStarScore(rs.getFloat("레슨별점"));
