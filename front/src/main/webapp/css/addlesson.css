@@ -31,8 +31,7 @@ div.addlesson>form>div.table div.td3 {
 div.td2>ul li { 
     padding-top: 8px;
 }
-div.td2 textarea[name=lsn_intro] {
-    resize: vertical; /* 상하만 크기조절가능 */
+div.td2 input[name=lsn_intro] {
     width: 500px;
     height: 300px;
 }   

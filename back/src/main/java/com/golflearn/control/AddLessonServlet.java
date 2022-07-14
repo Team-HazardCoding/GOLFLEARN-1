@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.golflearn.dto.Lesson;
 import com.golflearn.dto.LessonClsfc;
-import com.golflearn.dto.User;
 import com.golflearn.exception.AddException;
 import com.golflearn.repository.AddLessonOracleRepository;
 import com.golflearn.repository.AddLessonRepository;
@@ -38,15 +37,16 @@ public class AddLessonServlet extends HttpServlet {
 		
 		//입력받은 레슨정보를 레슨객체에 저장
 		Lesson lesson = new Lesson();
-		lesson.setLocNo(request.getParameter("sgg"));
+		lesson.setLocNo(request.getParameter("sigungu"));
 		lesson.setLsnTitle(request.getParameter("lsn_title"));
 		lesson.setLsnPrice(Integer.parseInt(request.getParameter("lsn_price")));
-		lesson.setLsnLv(request.getParameter("lv"));
+		lesson.setLsnLv(request.getParameter("lsn_lv"));
 		lesson.setLsnCntSum(Integer.parseInt(request.getParameter("lsn_cnt_sum")));
 		lesson.setLsnPerTime(Integer.parseInt(request.getParameter("lsn_per_time")));
 		lesson.setLsnIntro(request.getParameter("lsn_intro"));
 		lesson.setLsnDays(Integer.parseInt(request.getParameter("lsn_days")));
 		lesson.setLsnUploadDt(new java.sql.Date(System.currentTimeMillis()));
+		
 		String[] clubNos = request.getParameterValues("club_no");
 		List<LessonClsfc> lsnClsfcs = new ArrayList<LessonClsfc>();
 		
@@ -57,9 +57,9 @@ public class AddLessonServlet extends HttpServlet {
 			
 			lsnClsfcs.add(lsnClsfc);
 		}
-
+		
 		String userId = (String)session.getAttribute("loginInfo");
-
+		
 		//입력받은 데이터 저장 
 		try {
 			// 로그인된 사용자인지 검사
@@ -73,7 +73,7 @@ public class AddLessonServlet extends HttpServlet {
 				//로그인 되면
 //				if(repository.selectTypeById(loginedId) == 1) {	// user_type이 1인지 검사
 					AddLessonRepository repository = new AddLessonOracleRepository();
-					repository.insert(lesson, userId);	//레슨정보 등록
+					repository.insert(lesson);	//레슨정보 등록
 					Map<String, Object> map = new HashMap<>();
 					map.put("status", 1);
 //					map.put("user_type", 1);

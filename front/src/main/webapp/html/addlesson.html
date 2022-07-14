@@ -37,7 +37,7 @@
 								<img id="preview">
 								<br>
 								<label>레슨 썸네일 첨부 : </label>
-								<input type="file" name="lsn_thumbnail" accept="image/*">
+								<input type="file" id="lessonThumbnail" accept="image/*">
 							</div>
 							<br>
 							<br>
@@ -68,16 +68,15 @@
 									<li>레슨레벨:&nbsp;
 										<select name="lv">
 											<option value="none">=== 선택 ===</option>
-											<option name="lsn_lv" value="1">초급</option>
-											<option name="lsn_lv" value="2">중급</option>
-											<option name="lsn_lv" value="3">고급</option>
+											<option name="lsn_lv" value=1>초급</option>
+											<option name="lsn_lv" value=2>중급</option>
+											<option name="lsn_lv" value=3>고급</option>
 										</select>
 										<!-- <input type="text" name="lsn_lv"> -->
 									</li>
 									<li>레슨횟수(회):&nbsp;<input type="text" name="lsn_cnt_sum">회</li>
 									<li>회당 레슨시간(분):&nbsp;<input type="text" name="lsn_per_time">분</li>
-									<!-- <li>레슨소개:&nbsp;<input type="text" name="lsn_intro"></li> -->
-									<li>레슨소개<br><textarea name="lsn_intro" cols="50" rows="10"></textarea></li>
+									<li>레슨소개:&nbsp;<input type="text" name="lsn_intro"></li>
 									<li>유효기간(일):&nbsp;<input type="text" name="lsn_days">일</li>
 								</ul>
 							</div>
