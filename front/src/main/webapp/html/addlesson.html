@@ -37,7 +37,7 @@
 								<img id="preview">
 								<br>
 								<label>레슨 썸네일 첨부 : </label>
-								<input type="file" id="lessonThumbnail" accept="image/*">
+								<input type="file" name="lsn_thumbnail" accept="image/*">
 							</div>
 							<br>
 							<br>
@@ -53,8 +53,8 @@
 											<input type="checkbox" name="club_no" value="5"><label for="synthesis">종합</label>
 										</div>
 									</li>
-									<li>레슨명:&nbsp;<input type="text" name="lsn_title"></li>
-									<li>레슨비:&nbsp;<input type="text" name="lsn_price">원</li>
+									<li>레슨명:&nbsp;<input type="text" name="lsn_title" class="input" required></li>
+									<li>레슨비:&nbsp;<input type="text" name="lsn_price" class="input" required>원</li>
 									<li>레슨지역:&nbsp;
 										<select name="sd">
 											<option value="none">=== 선택 ===</option>
@@ -66,18 +66,21 @@
 										</select>
 									</li>
 									<li>레슨레벨:&nbsp;
-										<select name="lv">
+										<select name="lsn_lv">
 											<option value="none">=== 선택 ===</option>
-											<option name="lsn_lv" value=1>초급</option>
-											<option name="lsn_lv" value=2>중급</option>
-											<option name="lsn_lv" value=3>고급</option>
+											<option name="lv1" value=1>초급</option>
+											<option name="lv2" value=2>중급</option>
+											<option name="lv3" value=3>고급</option>
 										</select>
 										<!-- <input type="text" name="lsn_lv"> -->
 									</li>
-									<li>레슨횟수(회):&nbsp;<input type="text" name="lsn_cnt_sum">회</li>
-									<li>회당 레슨시간(분):&nbsp;<input type="text" name="lsn_per_time">분</li>
-									<li>레슨소개:&nbsp;<input type="text" name="lsn_intro"></li>
-									<li>유효기간(일):&nbsp;<input type="text" name="lsn_days">일</li>
+									<li>레슨횟수(회):&nbsp;<input type="text" name="lsn_cnt_sum" class="input" required>회</li>
+									<li>회당 레슨시간(분):&nbsp;<input type="text" name="lsn_per_time" class="input" required>분</li>
+									<li>레슨소개<br>
+										<!-- <input type="text" name="lsn_intro"> -->
+										<textarea name="lsn_intro" class="input" required></textarea>
+									</li>
+									<li>유효기간(일):&nbsp;<input type="text" name="lsn_days" class="input" required>일</li>
 								</ul>
 							</div>
 						</div>

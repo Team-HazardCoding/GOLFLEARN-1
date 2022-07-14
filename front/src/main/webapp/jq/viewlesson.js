@@ -45,12 +45,15 @@ $(function(){
 				$copyObj = $lsnObj.clone();
                 
 				let reviewId = element.user.userID;
+				//리뷰작성날짜 sql에서 얻어온 값 형변환
 				let reviewDt = element.lsnReview.reviewDt;
+				let convertReviewDt = new Date(reviewDt);
+				convertReviewDt = convertReviewDt.toLocaleDateString();
                 let review = element.lsnReview.review;
 
                 let lessonReview = '<ul>';
                 lessonReview += '<li><div>작성자아이디: <span class = "reviewId">' + reviewId + '</span></div></li>'
-                lessonReview += '<li><div>작성날짜: <span class = "reviewDt">' + reviewDt + '</span></div></li>'
+                lessonReview += '<li><div>작성날짜: <span class = "reviewDt">' + convertReviewDt + '</span></div></li>'
                 lessonReview += '<li><div>리뷰: <span class = "review">' + review + '</span></div></li>'
 				lessonReview += '<hr>'
                 lessonReview += '</ul>'

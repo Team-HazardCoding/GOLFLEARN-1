@@ -31,10 +31,15 @@ div.addlesson>form>div.table div.td3 {
 div.td2>ul li { 
     padding-top: 8px;
 }
-div.td2 input[name=lsn_intro] {
+/* div.td2 input[name=lsn_intro] {
     width: 500px;
     height: 300px;
-}   
+}    */
+div.td2 textarea[name=lsn_intro] {
+    width: 500px;
+    height: 300px;
+    resize: vertical; /* 상하만 크기조절가능 */
+}  
 div.td2 input[name=lsn_lv], div.td2 input[name=lsn_cnt_sum],
 div.td2 input[name=lsn_per_time], div.td2 input[name=lsn_days] {
     width: 50px;
@@ -51,6 +56,7 @@ div.td2 input[name=lsn_per_time], div.td2 input[name=lsn_days] {
     text-align: center;
     font-weight:bold;
     font-size:13px;
+    border-radius: 23px;
 }
 .select input[type=checkbox]+label{
     background-color: #fff;
@@ -90,3 +96,4 @@ img {
     padding:15px 20px;
     border-radius:100%;
 } 
+

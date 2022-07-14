@@ -39,11 +39,37 @@ $(function () {
 		return false;
 	});
 
+
+	//폼안에 input태그 입력값 유효검증
+	// $("form.lessonregister").validate({ // joinForm에 validate를 적용
+	// 	rules:{
+	// 		id:{required:true, rangelength:[5,10]}, 
+	// 		// required는 필수, rangelength는 글자 개수(5~10개 사이)
+	// 		pwd:{required:true, rangelength:[5,15]},
+	// 		pwdConfirm:{required:true, equalTo:"#pwd"}, 
+	// 		// equalTo : id가 pwd인 값과 같아야함
+	// 		name:"required", // 검증값이 하나일 경우 이와 같이도 가능
+	// 		personalNo1:{required:true, minlength:6, digits:true},
+	// 		// minlength : 최소 입력 개수, digits: 정수만 입력 가능
+	// 		personalNo2:{required:true, minlength:7, digits:true},
+	// 		email:{required:true, email:true},
+	// 		// email 형식 검증
+	// 		blog:{required:true, url:true}
+	// 		// url 형식 검증
+	// 	}
+	// });
+
 	//------------레슨정보 등록버튼 START------------
 	let $btRegister = $('button[name=register]');
 
 	$btRegister.click(function () {
-	
+		// 폼안에 input태그 입력값 유효검증
+		// if($.trim($(".input").val())==''){
+		// 	alert("입력해주세요.");
+		// 	return false;
+		// } 
+
+
 		let $formObj = $('form.lessonregister');
 		let formData = new FormData($formObj[0]);
 
@@ -90,7 +116,8 @@ $(function () {
 	});
 
 	//--------------이미지파일업로드 미리보기 START--------------
-	$("#lessonThumbnail").on("change", function(event) {
+	$("div.tr2 input[name=lsn_thumbnail]").on("change", function(event) {
+		// #lessonThumbnail
 		var file = event.target.files[0];
 		var reader = new FileReader(); 
 

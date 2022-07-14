@@ -37,7 +37,7 @@ public class AddLessonServlet extends HttpServlet {
 		
 		//입력받은 레슨정보를 레슨객체에 저장
 		Lesson lesson = new Lesson();
-		lesson.setLocNo(request.getParameter("sigungu"));
+		lesson.setLocNo(request.getParameter("sgg"));
 		lesson.setLsnTitle(request.getParameter("lsn_title"));
 		lesson.setLsnPrice(Integer.parseInt(request.getParameter("lsn_price")));
 		lesson.setLsnLv(request.getParameter("lsn_lv"));
@@ -73,7 +73,7 @@ public class AddLessonServlet extends HttpServlet {
 				//로그인 되면
 //				if(repository.selectTypeById(loginedId) == 1) {	// user_type이 1인지 검사
 					AddLessonRepository repository = new AddLessonOracleRepository();
-					repository.insert(lesson);	//레슨정보 등록
+					repository.insert(lesson, userId);	//레슨정보 등록
 					Map<String, Object> map = new HashMap<>();
 					map.put("status", 1);
 //					map.put("user_type", 1);
