@@ -20,7 +20,7 @@ $(function () {
       success: function (jsonObj) {
         if (jsonObj.status == 1) {
           alert(jsonObj.msg);
-          location.replace("http://localhost:1124/front/html/main.html");
+          location.replace("http://localhost:1124/front/html/addlesson.html");
         } else {
           alert(jsonObj.msg);
         }
