@@ -40,7 +40,7 @@ public class AddLessonServlet extends HttpServlet {
 		lesson.setLocNo(request.getParameter("sigungu"));
 		lesson.setLsnTitle(request.getParameter("lsn_title"));
 		lesson.setLsnPrice(Integer.parseInt(request.getParameter("lsn_price")));
-		lesson.setLsnLv(Integer.parseInt(request.getParameter("lsn_lv")));
+		lesson.setLsnLv(request.getParameter("lsn_lv"));
 		lesson.setLsnCntSum(Integer.parseInt(request.getParameter("lsn_cnt_sum")));
 		lesson.setLsnPerTime(Integer.parseInt(request.getParameter("lsn_per_time")));
 		lesson.setLsnIntro(request.getParameter("lsn_intro"));

@@ -27,6 +27,18 @@ $(function () {
 
     });
 
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 300){
+			$('.btn_gotop').show();
+		} else{
+			$('.btn_gotop').hide();
+		}
+	});
+	$('.btn_gotop').click(function(){
+		$('html, body').animate({scrollTop:0},400);
+		return false;
+	});
+
 	//------------레슨정보 등록버튼 START------------
 	let $btRegister = $('button[name=register]');
 
@@ -40,7 +52,7 @@ $(function () {
 		let $clubNo = $('input[name=club_no]').val();
 		let $lessonTitle = $('input[name=lsn_title]').val();
 		let $lessonPrice = $('input[name=lsn_price]').val();
-		let $lessonLV = $('input[name=lsn_lv]').val();
+		let $lessonLV = $('option[name=lsn_lv]').val();
 		let $lsnCntSum = $('input[name=lsn_cnt_sum]').val();
 		let $lsnPerTime = $('input[name=lsn_per_time]').val();
 		let $lsnIntro = $('input[name=lsn_intro]').val();
@@ -73,6 +85,44 @@ $(function () {
 				console.log($lsnDays);
 			}
 		});
+
 		return false;	
+	});
+
+	//--------------이미지파일업로드 미리보기 START--------------
+	$("#lessonThumbnail").on("change", function(event) {
+		var file = event.target.files[0];
+		var reader = new FileReader(); 
+
+		reader.onload = function(e) {
+			$("#preview").attr("src", e.target.result);
+		}
+
+		reader.readAsDataURL(file);
+	});
+	// 확장자가 이미지 파일인지 확인
+	function isImageFile(file) {
+		var ext = file.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+
+		return ($.inArray(ext, ["jpg", "jpeg", "gif", "png"]) === -1) ? false : true;
+	}
+	// 파일의 최대 사이즈 확인
+	function isOverSize(file) {
+		var maxSize = 3 * 1024 * 1024; // 3MB로 제한 
+
+		return (file.size > maxSize) ? true : false;
+	}
+
+	//-----------상단이동버튼 클릭 START-------------
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 300){
+			$('.btn_gotop').show();
+		} else{
+			$('.btn_gotop').hide();
+		}
+	});
+	$('.btn_gotop').click(function(){
+		$('html, body').animate({scrollTop:0},400);
+		return false;
 	});
 });

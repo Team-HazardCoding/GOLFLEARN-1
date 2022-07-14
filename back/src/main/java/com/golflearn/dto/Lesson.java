@@ -8,7 +8,7 @@ public class Lesson {
 	private int lsnNo;
 	private String lsnTitle;
 	private String lsnIntro;
-	private int lsnLv;	
+	private String lsnLv;	
 	private int lsnDays;
 	private int lsnPrice;
 	private int lsnPerTime;
@@ -72,11 +72,11 @@ public class Lesson {
 		this.lsnIntro = lsnIntro;
 	}
 
-	public int getLsnLv() {
+	public String getLsnLv() {
 		return lsnLv;
 	}
 
-	public void setLsnLv(int lsnLv) {
+	public void setLsnLv(String lsnLv) {
 		this.lsnLv = lsnLv;
 	}
 

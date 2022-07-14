@@ -25,4 +25,12 @@ public interface LessonRepository {
 	 * @throws FindException
 	 */
 	public List<Lesson> selectAll() throws FindException;
+	
+	/**
+	 * 해당 아이디에 user_type을 조회한다
+	 * @param user_id 아이디
+	 * @return user_type 유저타입
+	 * @throws FindException 아이디가 존재하지 않으면 "아이디를 찾을 수 없습니다" 상세메시지를 갖는 예외가 발생한다
+	 */
+	public int selectTypeById(String userId) throws FindException;
 }

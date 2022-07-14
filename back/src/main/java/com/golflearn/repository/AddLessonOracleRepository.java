@@ -37,7 +37,7 @@ public class AddLessonOracleRepository implements AddLessonRepository {
 			pstmt.setString(1, lesson.getLocNo());
 			pstmt.setString(2, lesson.getLsnTitle());
 			pstmt.setInt(3, lesson.getLsnPrice());
-			pstmt.setInt(4, lesson.getLsnLv());
+			pstmt.setString(4, lesson.getLsnLv());
 			pstmt.setInt(5, lesson.getLsnCntSum());
 			pstmt.setInt(6, lesson.getLsnPerTime());
 			pstmt.setString(7, lesson.getLsnIntro());

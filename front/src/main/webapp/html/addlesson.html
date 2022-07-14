@@ -11,6 +11,11 @@
 </head>
 
 <body>
+	<!-- 상단 이동하기 버튼 -->
+	<a href="#" class="btn_gotop">
+		<img src="../images/TOP.jpeg" style="width:45px; height:45px;">
+	</a>
+
 	<!--헤더(메뉴바)-->
 	<div w3-include-html="header.html" class="w3"></div>
 	<!--레슨등록화면-->
@@ -25,14 +30,18 @@
 							</label>
 						</div>
 					</div>
+					<br>
 					<form method="post" action="http://localhost:1124/back/addlesson" class="lessonregister" enctype="multipart/form-data">
 						<div class="tr2">
 							<div class="td1">
-								<img src="" alt="" />
-								이미지파일<br>
-								<label>레슨 썸네일 첨부</label>
+								<img id="preview">
+								<br>
+								<label>레슨 썸네일 첨부 : </label>
 								<input type="file" id="lessonThumbnail" accept="image/*">
 							</div>
+							<br>
+							<br>
+							<br>
 							<div class="td2">
 								<ul>
 									<li>레슨분류:
@@ -44,9 +53,9 @@
 											<input type="checkbox" name="club_no" value="5"><label for="synthesis">종합</label>
 										</div>
 									</li>
-									<li>레슨명:<input type="text" name="lsn_title"></li>
-									<li>레슨비:<input type="text" name="lsn_price"></li>
-									<li>레슨지역:
+									<li>레슨명:&nbsp;<input type="text" name="lsn_title"></li>
+									<li>레슨비:&nbsp;<input type="text" name="lsn_price">원</li>
+									<li>레슨지역:&nbsp;
 										<select name="sd">
 											<option value="none">=== 선택 ===</option>
 
@@ -56,16 +65,26 @@
 
 										</select>
 									</li>
-									<li>레슨레벨:<input type="text" name="lsn_lv"></li>
-									<li>레슨횟수:<input type="text" name="lsn_cnt_sum"></li>
-									<li>회당 레슨시간:<input type="text" name="lsn_per_time"></li>
-									<li>레슨소개:<input type="text" name="lsn_intro"></li>
-									<li>유효기간:<input type="text" name="lsn_days"></li>
+									<li>레슨레벨:&nbsp;
+										<select name="lv">
+											<option value="none">=== 선택 ===</option>
+											<option name="lsn_lv" value=1>초급</option>
+											<option name="lsn_lv" value=2>중급</option>
+											<option name="lsn_lv" value=3>고급</option>
+										</select>
+										<!-- <input type="text" name="lsn_lv"> -->
+									</li>
+									<li>레슨횟수(회):&nbsp;<input type="text" name="lsn_cnt_sum">회</li>
+									<li>회당 레슨시간(분):&nbsp;<input type="text" name="lsn_per_time">분</li>
+									<li>레슨소개:&nbsp;<input type="text" name="lsn_intro"></li>
+									<li>유효기간(일):&nbsp;<input type="text" name="lsn_days">일</li>
 								</ul>
 							</div>
 						</div>
 						<div class="tr3">
 							<div class="tr1">
+								<br>
+								<br>
 								<button type="submit" name="register">등록</button>
 							</div>
 						</div>
@@ -74,15 +93,11 @@
 			</div>
 		</article>
 	</section>
-	<hr>
 	<!--풋터-->
 	<div w3-include-html="footer.html" class="w3"></div>
 	<script>
 		w3.includeHTML();
 	</script>
 </body>
-<footer>
-
-</footer>
 
 </html>

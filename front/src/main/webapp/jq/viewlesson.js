@@ -1,5 +1,7 @@
 $(function(){
 	//---------------화면 로딩되자마자----------------
+	
+	//레슨정보 서블릿에 보내기
 	let queryString = location.search.substring(1); 
 
 	$.ajax({
@@ -9,7 +11,6 @@ $(function(){
 		data: queryString, 
 		success: function (jsonObj) {
 			console.log(jsonObj);
-			//-----------레슨정보호출 START-------------
 			//레슨간략정보(레슨제목, 레슨별점,,, 등) 서블릿에서 가져오기
 			let loc_no = jsonObj.lesson.locNo;	//지역코드(ex:11011에 해당하는 주소지역 다 문자로 표현)
 			let lsn_title = jsonObj.lesson.lsnTitle;
@@ -91,9 +92,39 @@ $(function(){
 	// });
 
 	//------------레슨상세정보 네비바 클릭 START-------------
-	$(".scroll_move").click(function(event){         
-		event.preventDefault();
-		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+	$(document).ready(function(){
+		$('#lsnIntroLink').click(function(){
+			var offset = $('div.lsn_intro').offset(); //선택한 태그의 위치를 반환                
+			//animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함
+			$('html').animate({scrollTop : offset.top}, 400);		
+		});	
+	});
+	$(document).ready(function(){
+		$('#proIntroLink').click(function(){
+			var offset = $('div.pro_intro').offset(); //선택한 태그의 위치를 반환                
+			//animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함
+			$('html').animate({scrollTop : offset.top}, 400);		
+		});	
+	});
+	$(document).ready(function(){
+		$('#reviewLink').click(function(){
+			var offset = $('div.lsn').offset(); //선택한 태그의 위치를 반환                
+			//animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함
+			$('html').animate({scrollTop : offset.top}, 400);		
+		});	
+	});
+
+	//-----------상단이동버튼 클릭 START-------------
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 300){
+			$('.btn_gotop').show();
+		} else{
+			$('.btn_gotop').hide();
+		}
+	});
+	$('.btn_gotop').click(function(){
+		$('html, body').animate({scrollTop:0},400);
+		return false;
 	});
 
 	//------------레슨등록 프로회원만 보이도록 만들기 START-------------
