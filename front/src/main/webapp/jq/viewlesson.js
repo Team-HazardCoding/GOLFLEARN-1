@@ -1,7 +1,6 @@
 $(function(){
 	//---------------화면 로딩되자마자----------------
 	let queryString = location.search.substring(1); 
-	// "?" 이후부터의 쿼리스트링값 추출
 
 	$.ajax({
 		url: "/back/viewlesson",
@@ -67,7 +66,7 @@ $(function(){
 
 	//------------수강신청 버튼 클릭 START-------------
 	//(서블릿이없어서 alert띄우는방향으로하기 : 추후 결제와 실제수강신청구현)
-	$('div.simple ul>li>button').click(function(jsonObj){
+	$('div.simple button').click(function(jsonObj){
 		// let lsn_title = jsonObj.lesson.lsnTitle;
 		// alert('"' + lsn_title + '" 수강신청이 완료되었습니다.');
 		alert('수강신청이 완료되었습니다');

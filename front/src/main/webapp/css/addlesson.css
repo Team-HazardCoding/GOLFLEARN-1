@@ -43,3 +43,9 @@ div.addlesson>form>div.table div.td3 {
     background-color: #333;
     color: #fff;
 }
+
+section {
+    padding-top: 120px; 
+    padding-bottom: 120px;
+    padding-left: 150px;
+}

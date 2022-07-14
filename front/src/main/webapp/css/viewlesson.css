@@ -1,4 +1,13 @@
+@import url(footer.css);
+@import url(header.css);
+
 /* 모든 a태그 밑줄 삭제 */
 a {
     text-decoration: none;
 }
+
+body {
+    width: 80%;
+    margin-top: 95px;
+}
+
