@@ -43,15 +43,21 @@ $(function(){
             let $lsnObj = $('div.reviewlist');
             $(jsonarr).each(function(i, element){
 				$copyObj = $lsnObj.clone();
-                
+
 				let reviewId = element.user.userID;
-				let reviewDt = element.lsnReview.reviewDt;
+				//reviewDt 데이트포맷 바꿔서 출력하기
+				let reviewDt = element.lsnReview.reviewDt;	// 1162636322
+				let reviewDt2 = new Date(reviewDt);			
+				reviewDt2 = reviewDt2.toLocaleDateString();	// yyyy/mm/dd
+
                 let review = element.lsnReview.review;
 
                 let lessonReview = '<ul>';
+				lessonReview += '<br>'
                 lessonReview += '<li><div>작성자아이디: <span class = "reviewId">' + reviewId + '</span></div></li>'
-                lessonReview += '<li><div>작성날짜: <span class = "reviewDt">' + reviewDt + '</span></div></li>'
+                lessonReview += '<li><div>작성날짜: <span class = "reviewDt">' + reviewDt2 + '</span></div></li>'
                 lessonReview += '<li><div>리뷰: <span class = "review">' + review + '</span></div></li>'
+				lessonReview += '<br>'
 				lessonReview += '<hr>'
                 lessonReview += '</ul>'
                 
