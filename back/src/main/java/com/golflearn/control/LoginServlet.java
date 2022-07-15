@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 //			System.out.println(userPwd);
 			if(rs.next()) {// 로그인 성공
 				String userType = rs.getString("user_type");
-//				System.out.println(userType); 		
+//				System.out.println(userType); // 로그인 된 유저가 있을 시 유저타입 조회, 출력 
 				
 				map.put("status",1);
 				map.put("msg", "로그인 되었습니다.");
