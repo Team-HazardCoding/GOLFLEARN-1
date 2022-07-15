@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import javax.websocket.Session;
-
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -76,6 +74,5 @@ public class ViewMainServlet extends HttpServlet {
 			//			System.out.println("result: " + result);
 			out.print(result);
 		}
-
-	}
+	}		
 }
